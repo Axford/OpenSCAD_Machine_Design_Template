@@ -1,0 +1,66 @@
+group() {
+	group() {
+		group() {
+			group();
+			group() {
+				group() {
+					group() {
+						group();
+					}
+					group() {
+						group();
+					}
+					group() {
+						group();
+					}
+					group() {
+						group() {
+							group();
+							group() {
+								group() {
+									group() {
+										group() {
+											group() {
+												group();
+												group() {
+													group() {
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group() {
+															group();
+														}
+														group();
+													}
+												}
+												group();
+											}
+										}
+										cube(size = [10, 10, 10], center = false);
+									}
+								}
+								group();
+							}
+						}
+					}
+				}
+			}
+			group();
+		}
+	}
+}

@@ -20,6 +20,23 @@ M6_half_nut = [6, 11.5,  3, 8,    M6_washer,     3, "M6_half_nut", true];
 M8_nut      = [8, 15,  6.5, 8,    M8_washer,     M8_nut_depth, "M8_nut", false];
 M10_nut     = [10, 19.6,  8, 8,   M10_washer,    M10_nut_depth, "M10_nut", false];
 
+nut_types = [
+    M2_nut,
+    M2p5_nut,
+    M3_nut,
+    M4_nut,
+    M5_nut,
+    M6_nut,
+    M6_half_nut,
+    M8_nut,
+    M10_nut
+];
+
+module nut_Catalogue() {
+    // output a set of vitamin() calls to be used to construct the vitamin catalogue
+    for (t = nut_types) nut(t);
+}
+
 function nut_radius(type) = type[1] / 2;
 function nut_flat_radius(type) = nut_radius(type) * cos(30);
 function nut_thickness(type, nyloc = false) = nyloc ? type[3] : type[2];

@@ -17,15 +17,45 @@ from views import render_view;
 from views import view_filename;
 
 
-def compile_vitamin(v):
-
-    temp_name =  "temp.scad"
-
+def output_vitamin(v):
     md = ""
 
-    md += "## " + v['call'] + '\n\n'
-    md += " * Filename: "+v['file'] + '\n'
-    md += ' * Title of default part: ' + v['title'] + '\n'
+    md += "## " + v['file'] + '\n\n'
+
+    md += 'Title | Call | Image\n'
+    md += '--- | --- | ---\n'
+
+    for t in v['types']:
+        md += t['title'] + " | " + t['call'] + " | "
+
+        # per view
+        for view in t['children']:
+            if type(view) is DictType and view['type'] == 'view':
+                md += '!['+t['title']+']('+view['png_name']+')\n'
+
+    md += '\n'
+    return md
+
+
+def add_vitamin(n, dom):
+    vfound = None
+    for v in dom['vitamins']:
+        if v['file'] == n['file']:
+            vfound = v
+            continue
+
+    if vfound == None:
+        vfound = {'file':n['file'], 'types':[ n ] }
+        dom['vitamins'].append(vfound)
+    else:
+        vfound['types'].append(n)
+
+    return vfound
+
+
+def compile_vitamin(v, dom):
+
+    temp_name =  "temp.scad"
 
 
     #
@@ -73,14 +103,14 @@ def compile_vitamin(v):
                 render_view(v['title'], v['call'], view_dir, view, hashchanged, h, [fn])
 
                 png_name = view_dir + '/' + view_filename(v['title'] + '_' + view['title'])
-                md += '!['+v['title']+']('+png_name+')\n'
+                view['png_name'] = png_name
+
+
+        node = add_vitamin(v, dom)
 
 
     else:
         print("    Error: scad file not found: "+v['file'])
-
-    md += '\n'
-    return md
 
 
 def parse_vitamin(vitaminscad, use_catalogue_call=False):
@@ -179,7 +209,6 @@ def catalogue():
 
             try:
                 s = parse_vitamin(filename, True)
-                print(s)
             except:
                 errorlevel = 1
 
@@ -216,16 +245,18 @@ def catalogue():
 
         print("Parsed "+str(files)+" vitamin files")
 
+        dom = {'vitamins':[]}
+
         for v in jso:
             if type(v) is DictType and v['type'] == 'vitamin':
                 try:
-
-                    md += compile_vitamin(v)
+                    compile_vitamin(v, dom)
                 except Exception as e:
                     print("Exception: ")
                     print(e)
 
-
+        for v in dom['vitamins']:
+            md += output_vitamin(v)
 
 
     except Exception as e:

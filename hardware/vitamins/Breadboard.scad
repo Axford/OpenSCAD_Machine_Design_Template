@@ -35,6 +35,17 @@ Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,            
 Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,          4.5,       "400"  ];
 
 
+Breadboard_types = [
+	Breadboard_170,
+	Breadboard_270,
+	Breadboard_400
+];
+
+module Breadboard_Catalogue() {
+    // output a set of vitamin() calls to be used to construct the vitamin catalogue
+    for (t = Breadboard_types) Breadboard(t);
+}
+
 // Breadboard Type Getters
 
 function Breadboard_Width(BreadboardType) = BreadboardType[0];
@@ -154,7 +165,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	prpo = (pinsWide - prp) * ps / 2;
 
 	vitamin("vitamins/Breadboard.scad", str("Breadboard ",tn), str("Breadboard(Breadboard_",tn,")")) {
-	    view(d=300);
+	    view(d=400);
 
         if (DebugCoordinateFrames) frame();
 

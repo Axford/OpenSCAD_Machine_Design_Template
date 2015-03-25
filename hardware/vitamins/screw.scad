@@ -51,6 +51,46 @@ No6_screw      = ["PSW06", "No6 pan wood screw", hs_pan, 3.5, 6.7, 2.2,   M4_was
 No6_cs_screw   = ["PSW06", "No6 cs  wood screw", hs_cs,  3.5, 7.0, 0,     M4_washer, false,  No6_pilot_radius, No6_clearance_radius, "No6_cs_screw"];
 No632_pan_screw =["PS063", "6-32 pan screw",     hs_pan, 3.5, 6.9, 2.5,   M4_washer, false,  No6_pilot_radius, No6_clearance_radius, "No632_pan_screw"];
 
+
+screw_types = [
+    M2_pan_screw,
+    M2p5_pan_screw,
+    M2p5_cap_screw,
+
+    M3_cap_screw,
+    M3_pan_screw,
+    M3_hex_screw,
+    M3_grub_screw,
+
+    M4_cap_screw,
+    M4_pan_screw,
+    M4_hex_screw,
+    M4_grub_screw,
+
+    M5_cap_screw,
+
+    M6_cap_screw,
+    M6_selftap_screw,
+
+    M8_cap_screw,
+    M8_hex_screw,
+
+    M10_cap_screw,
+
+    M5_lowprofile_screw,
+
+    No2_screw,
+    No4_screw,
+    No6_screw,
+    No6_cs_screw,
+    No632_pan_screw
+];
+
+module screw_Catalogue() {
+    // output a set of vitamin() calls to be used to construct the vitamin catalogue
+    for (t = screw_types) screw(t);
+}
+
 // default connector for screws
 screwCon = [[0,0,0],[0,0,-1],0];
 screw_Con_Default = screwCon;

@@ -136,10 +136,10 @@ blockquote p {
 table {
     /* Indent tables */
     position:relative;
-    margin-left: 12em;
+    margin-left: 0em;
     clear:both;
-    margin-top: -2em;
-    width:70%;
+    margin-top: 0em;
+    width:100%;
 }
 @media screen and (max-width: 40em) {
     table {

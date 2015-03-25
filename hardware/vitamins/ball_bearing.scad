@@ -15,6 +15,18 @@ BB625_2RS = [5, 16, 5, "625_2RS"];    //  625 bearings for Delrin v groove wheel
 BB6205_2RS = [25, 52, 15, "6205_2RS"];
 
 
+ball_bearing_types = [
+    BB623,
+    BB624,
+    BB608,
+    BB625_2RS,
+    BB6205_2RS
+];
+
+module ball_bearing_Catalogue() {
+    for (t = ball_bearing_types) ball_bearing(t);
+}
+
 // local color mapping
 bearing_color = MetalColor;
 

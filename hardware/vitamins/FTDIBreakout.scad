@@ -55,7 +55,7 @@ module FTDIBreakout() {
     t = 1.7;
 
     vitamin("vitamins/FTDIBreakout.scad", "Sparkfun FTDI Breakout", "FTDIBreakout()") {
-		view(t=[67,3,8],r=[310,33,3],d=384);
+		view(d=300);
 	}
 
     if (DebugCoordinateFrame) frame();

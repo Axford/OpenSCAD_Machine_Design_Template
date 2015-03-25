@@ -3,8 +3,8 @@
 
 module 3DRRadio()
 {
-	vitamin("vitamins/3drradio.scad", "3DR Radio", "3DRRadio()") {
-		view(t=[67,3,8],r=[310,33,3],d=384);
+	vitamin("vitamins/3DRRadio.scad", "3DR Radio", "3DRRadio()") {
+		view(d=300);
 	}
 
 	color([0,0.4,0.1])

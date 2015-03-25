@@ -216,6 +216,12 @@ function attachedDirection(c1, c2, c3, v=[0,0,-1], ExplodeSpacing=10) =
 // Utilities
 // --------------------------------------
 
+module thread(offset, ExplodeSpacing=10) {
+    if($children)
+        for(i=[0:$children-1])
+            attach(offsetConnector(DefConDown, [0,0,offset]), DefConDown, ExplodeSpacing=ExplodeSpacing * (i+1))
+            children(i);
+}
 
 
 // threads along neg z axis, starting at z=0 with first part

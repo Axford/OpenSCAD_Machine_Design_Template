@@ -51,7 +51,7 @@ module APM25() {
     fi = 5.33/2;  // fixing inset
 
     vitamin("vitamins/APM25.scad", "APM 2.5", "APM25()") {
-        view(t=[23,9,3],r=[34,2,22],d=320);
+        view(d=300);
     }
 
     if (DebugCoordinateFrames) frame();

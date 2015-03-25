@@ -11,7 +11,7 @@ Con_ESC_CenterBottom = [ [ESC_Width/2, ESC_Length/2, 0], [0, 0, -1], 0, 0, 0 ];
 module ESC()
 {
     vitamin("vitamins/ESC.scad", "ESC", "ESC()") {
-        view(t=[23,9,3],r=[34,2,22],d=320);
+        view(d=300);
     }
 
     if (DebugCoordinateFrames)  frame();

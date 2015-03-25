@@ -7,6 +7,10 @@
 //
 // Screws
 //
+
+use <../vitamins/washer.scad>
+use <../vitamins/nut.scad>
+
 hs_cap = 0;
 hs_pan = 1;
 hs_cs  = 2;     // counter sunk
@@ -77,16 +81,16 @@ function screw_head_height(type) = type[2] == hs_cap ? type[3] :
                                    type[2] == hs_cs  ? type[4] / 2 : type[5];
 
 
-module screw(type, length, hob_point = 0) {
-    
-    vitamin("vitamins/screws.scad", str(type[1]," x ",length,"mm", hob_point > 0 ? str(", hobbed at ", hob_point) : ""), str("screw(type=",type[10],",length=",length,", hob_point=",hob_point," )")) {
-        view();
+module screw(type=M4_cap_screw, length=20, hob_point = 0) {
+
+    vitamin("vitamins/screw.scad", str(type[1]," x ",length,"mm", hob_point > 0 ? str(", hobbed at ", hob_point) : ""), str("screw(type=",type[10],",length=",length,", hob_point=",hob_point," )")) {
+        view(d=200);
     }
 
     head_type = type[2];
     rad = screw_radius(type) - eta;
     head_rad = screw_head_radius(type);
-    
+
     translate([0, 0, exploded ? length + 10 : 0]) {
         if(head_type == hs_cap) {
             assign(head_height = rad * 2,
@@ -177,10 +181,8 @@ module screw_and_washer(type, length, spring = false) {
 
 module screw_washer_and_nut(screw_type, nut_type, length, offset, nyloc=false) {
 	screw(screw_type, length);
-	
+
 	translate([0,0,-offset])
 		mirror([0,0,1])
 		nut_and_washer(nut_type, nyloc);
 }
-
-

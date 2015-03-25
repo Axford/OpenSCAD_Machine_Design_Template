@@ -1,21 +1,21 @@
 /*
 	Vitamin: Breadboard
 	Various common breadboard models
-	
+
 	Authors:
 		Damian Axford
-	
-	Local Frame: 
+
+	Local Frame:
 		Bottom corner at the origin, width is in x+, depth is in y+
-	
+
 	Parameters:
 		BreadboardType - One of a set of Breadboard types
 		ShowPins - boolean
 		BoardColor - color
-	
+
 	Connectors:
 		BottomLeft, TopLeft, BottomRight, TopRight
-		
+
 	Returns:
 		A Breadboard model, colored
 */
@@ -59,41 +59,41 @@ function Breadboard_ConnectorHeight(BreadboardType) = Breadboard_MountPoints(Bre
 
 function Breadboard_Con_BottomLeft(BreadboardType) = [
 	[
-		Breadboard_MountInsetX(BreadboardType), 
-		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2, 
+		Breadboard_MountInsetX(BreadboardType),
+		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2,
 		Breadboard_ConnectorHeight(BreadboardType)
-	], 
-	[0, 0, -1], 
+	],
+	[0, 0, -1],
 	0, 0, 0
 	];
 
 function Breadboard_Con_TopLeft(BreadboardType) = [
 	[
-		Breadboard_MountInsetX(BreadboardType), 
-		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_Depth(BreadboardType)-Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2, 
+		Breadboard_MountInsetX(BreadboardType),
+		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_Depth(BreadboardType)-Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2,
 		Breadboard_ConnectorHeight(BreadboardType)
-	], 
-	[0, 0, -1], 
+	],
+	[0, 0, -1],
 	0, 0, 0
 	];
-	
+
 function Breadboard_Con_BottomRight(BreadboardType) = [
 	[
-		Breadboard_Width(BreadboardType) - Breadboard_MountInsetX(BreadboardType), 
-		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2, 
+		Breadboard_Width(BreadboardType) - Breadboard_MountInsetX(BreadboardType),
+		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2,
 		Breadboard_ConnectorHeight(BreadboardType)
-	], 
-	[0, 0, -1], 
+	],
+	[0, 0, -1],
 	0, 0, 0
 	];
 
 function Breadboard_Con_TopRight(BreadboardType) = [
 	[
-		Breadboard_Width(BreadboardType) - Breadboard_MountInsetX(BreadboardType), 
-		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_Depth(BreadboardType)-Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2, 
+		Breadboard_Width(BreadboardType) - Breadboard_MountInsetX(BreadboardType),
+		Breadboard_MountPoints(BreadboardType) > 2 ? Breadboard_Depth(BreadboardType)-Breadboard_MountInsetY(BreadboardType) : Breadboard_Depth(BreadboardType)/2,
 		Breadboard_ConnectorHeight(BreadboardType)
-	], 
-	[0, 0, -1], 
+	],
+	[0, 0, -1],
 	0, 0, 0
 	];
 
@@ -110,25 +110,25 @@ function Breadboard_Cons(BreadboardType) = [
 // along is in x, across in in y, both numbered from 1
 function Breadboard_Con_Pin(t, along, across, ang) = [
     [
-        (Breadboard_Width(t) - ((Breadboard_PinsWide(t)-1) * Breadboard_PinSpacing))/2 + (along-1) * Breadboard_PinSpacing, 
+        (Breadboard_Width(t) - ((Breadboard_PinsWide(t)-1) * Breadboard_PinSpacing))/2 + (along-1) * Breadboard_PinSpacing,
         Breadboard_Depth(t)/2 + (across < 6 ? -1 : 1) * ( (3*2.54/2) + (across < 6 ? 5-across : across-6) * Breadboard_PinSpacing ),
-        Breadboard_Height(t) 
+        Breadboard_Height(t)
     ],
     [0,0,-1],
     ang,0,0
-]; 
+];
 
 
 module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "white") {
-	
+
 	// local shortcuts
-	
+
 	ps = Breadboard_PinSpacing;
 	pw = Breadboard_PinWidth;
-	
+
 	w = Breadboard_Width(BreadboardType);
 	d = Breadboard_Depth(BreadboardType);
-	h = Breadboard_Height(BreadboardType);	
+	h = Breadboard_Height(BreadboardType);
 	pinsWide = Breadboard_PinsWide(BreadboardType);
 	pr = Breadboard_PowerRails(BreadboardType);
 	prg = Breadboard_PowerRailGrouping(BreadboardType);
@@ -138,26 +138,26 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	miy = Breadboard_MountInsetY(BreadboardType);
 	mb = Breadboard_MountBore(BreadboardType);
 	tn = Breadboard_TypeName(BreadboardType);
-	
+
 	// calculations
-	
+
 	// x offset for main pains
 	pox = (w - ((pinsWide-1) * ps))/2;
-		
+
 	// number of power rail pin groups
-	prgs = round(pinsWide / (prg + 1)); 
-	
+	prgs = round(pinsWide / (prg + 1));
+
 	// equivalent total number of power pins
 	prp = prgs * (prg + 1) - 1;
-	
+
 	// power pin offset, for uneven numbers of power pins
 	prpo = (pinsWide - prp) * ps / 2;
-	
+
 	vitamin("vitamins/Breadboard.scad", str("Breadboard ",tn), str("Breadboard(Breadboard_",tn,")")) {
-	    view(t=[21,17,9], r=[62,0,218], d=316);
-	
+	    view(d=300);
+
         if (DebugCoordinateFrames) frame();
-    
+
         if (DebugConnectors) {
             if (mp > 0) {
                 connector(Breadboard_Con_BottomLeft(BreadboardType));
@@ -168,14 +168,14 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                 connector(Breadboard_Con_TopRight(BreadboardType));
             }
         }
-    
+
         // Base
         color(BoardColor)
             render()
             difference() {
                 // Starting cuboid
                 cube([w, d, h]);
-            
+
                 // mounting holes + countersinks
                 if (mp > 0) {
                     for (x=[-1,1])
@@ -187,19 +187,19 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                                 translate([0, y * (d/2 - miy), 0]) {
                                     // bore
                                     cylinder(r=mb/2*0.8, h=h+2, $fn=12);
-                        
+
                                     // CS
                                     translate([0,0, h/2])
                                         cylinder(r=mb/2, h=h+2, $fn=16);
                                 }
                         }
                 }
-                
+
                 // central gutter
                 translate([w/2, d/2, 2 + h/2])
                     cube([gw, 4, h], center=true);
             }
-        
+
         // Pins
         // - Cheap hack to draw quickly by drawing pins as individual 2D squares
         if (ShowPins)
@@ -210,7 +210,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                 for (x=[0:pinsWide-1], y=[0:4], m=[-1,1])
                     translate([pox + x * ps, d/2 + m * ( (3*2.54/2) + y * ps )])
                     square([pw,pw], center=true);
-                
+
                 // power rails
                 if (pr > 0) {
                     for (g=[0:prgs-1])
@@ -219,6 +219,6 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                         translate([x * ps, d/2 + m * ( (3*2.54/2 + 5*2.54 + 2.54) + y * ps )])
                         square([pw,pw], center=true);
                 }
-            }	
+            }
 	}
 }

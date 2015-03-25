@@ -7,6 +7,9 @@
 //
 // Washers
 //
+
+use <../vitamins/washer.scad>
+
 M2_nut      = [2, 4.3, 1.6, 3.5,    M2_washer,     M2_nut_trap_depth, "M2_nut", false];
 M2p5_nut  = [2.5, 5.8, 2.2, 3.8,  M2p5_washer, M2p5_nut_trap_depth, "M2p5_nut", false];
 M3_nut      = [3, 6.4, 2.4, 4,    M3_washer,     M3_nut_trap_depth, "M3_nut", false];
@@ -25,18 +28,18 @@ function nut_trap_depth(type) = type[5];
 
 screw_pan_color = [0.7,0.7,0.7];
 
-module nut(type, nyloc = false, brass = false, ExplodeSpacing=10) {
+module nut(type=M4_nut, nyloc = false, brass = false, ExplodeSpacing=10) {
     hole_rad  = type[0] / 2;
     outer_rad = nut_radius(type);
     thickness = nut_thickness(type);
     nyloc_thickness = type[3];
 
     vitamin(
-        "vitamins/nuts.scad",
+        "vitamins/nut.scad",
         str(nyloc?"Nyloc " : "", brass?"Brass ":"", "M", type[0], type[7] ? " Half" : "" , " Nut"),
         str("nut(type=",type[6],",nyloc=",nyloc,",brass=",brass," )")
     ) {
-        view();
+        view(d=200);
     }
 
     if(exploded && nyloc)

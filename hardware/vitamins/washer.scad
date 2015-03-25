@@ -30,17 +30,17 @@ function washer_soft(type)      = type[3];
 function washer_color(type) = washer_soft(type) ? soft_washer_color : hard_washer_color;
 function star_washer_diameter(type) = type[4];
 
-module washer(type, ExplodeSpacing=10) {
+module washer(type=M4_washer, ExplodeSpacing=10) {
     hole = type[0];
     thickness = washer_thickness(type);
     diameter  = washer_diameter(type);
 
     vitamin(
-        "vitamins/washers.scad",
+        "vitamins/washer.scad",
         str("M",hole, washer_soft(type) ? " Rubber":""  ," Washer ",diameter,"x",thickness),
         str("washer(type=",type[5],")")
     ) {
-        view();
+        view(d=200);
     }
 
     color(washer_color(type)) render() difference() {

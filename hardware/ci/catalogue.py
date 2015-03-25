@@ -100,7 +100,7 @@ def compile_vitamin(v, dom):
             if type(view) is DictType and view['type'] == 'view':
                 print("      "+view['title'])
 
-                render_view(v['title'], v['call'], view_dir, view, hashchanged, h, [fn])
+                render_view(v['title'], v['call'], view_dir, view, hashchanged, h, [fn], True)
 
                 png_name = view_dir + '/' + view_filename(v['title'] + '_' + view['title'])
                 view['png_name'] = png_name

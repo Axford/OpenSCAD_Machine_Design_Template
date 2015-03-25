@@ -12,6 +12,7 @@ from cut import cut
 from printed import printed
 from guides import guides
 from publish import publish
+from catalogue import catalogue
 
 def build(do_publish=0):
     print("Build")
@@ -42,6 +43,8 @@ def build(do_publish=0):
 
     if errorlevel == 0:
         errorlevel += guides()
+
+    catalogue();
 
     if errorlevel == 0 and do_publish > 0:
         publish()

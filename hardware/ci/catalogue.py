@@ -83,7 +83,7 @@ def compile_vitamin(v):
     return md
 
 
-def parse_vitamin(vitaminscad):
+def parse_vitamin(vitaminscad, use_catalogue_call=False):
 
     tempscadfile =  "temp.scad"
     logfile = 'openscad.log'
@@ -96,8 +96,10 @@ def parse_vitamin(vitaminscad):
     with open(tempscadfile, "w") as f:
         f.write("include <../config/config.scad>\n")
         f.write("include <../vitamins/"+vitaminscad+">\n")
-        f.write(vitamincall + "();\n");
-
+        if use_catalogue_call:
+            f.write(vitamincall + "_Catalogue();\n");
+        else:
+            f.write(vitamincall + "();\n");
 
     openscad.run('-D','$ShowBOM=true','-o','dummy.csg',tempscadfile);
 
@@ -133,16 +135,18 @@ def parse_vitamin(vitaminscad):
         js = re.sub(r",(\s*(\}|\]))","\g<1>", js)
         js = re.sub(r",\s*$","", js)
 
-        try:
-            jso = json.loads(js)
+        # catalogue calls return a set of values but without at array enclosure so will fail syntax check
+        if not use_catalogue_call:
+            try:
+                jso = json.loads(js)
 
-            # prettify
-            js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
+                # prettify
+                js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
 
-        except Exception as e:
-            print("  "+e)
-            # Stop malformed machine json screwing up everything else!
-            js = ''
+            except Exception as e:
+                print("  "+e)
+                # Stop malformed machine json screwing up everything else!
+                js = ''
 
     else:
         raise Exception("Syntax error")
@@ -174,7 +178,8 @@ def catalogue():
             s = ''
 
             try:
-                s = parse_vitamin(filename)
+                s = parse_vitamin(filename, True)
+                print(s)
             except:
                 errorlevel = 1
 
@@ -183,6 +188,20 @@ def catalogue():
                     js += ', '
                 js += s
                 files += 1
+
+            if s == '':
+                print ("  Trying the default vitamin...")
+                try:
+                    s = parse_vitamin(filename, False)
+                except:
+                    errorlevel = 1
+
+                if (s > ''):
+                    if (files > 0):
+                        js += ', '
+                    js += s
+                    files += 1
+
 
 
     js += ']';

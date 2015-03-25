@@ -20,15 +20,36 @@ M8_washer =       [8,  17, 1.8, false, 13.8, "M8_washer"];
 M8_penny_washer = [8,  30, 1.5, false, 13.8, "M8_penny_washer"];
 M10_washer =      [10,  21, 2.2, false, 15.8, "M10_washer"];
 
-M3_rubber_washer= [3,  10, 1.5, true];
+M3_rubber_washer= [3,  10, 1.5, true, 0, "M3_rubber_washer"];
+
+washer_types = [
+    M2_washer,
+    M2p5_washer,
+    M3_washer,
+    M3p5_washer,
+    M4_washer,
+    M5_washer,
+    M5_penny_washer,
+    M6_washer,
+    M8_washer,
+    M8_penny_washer,
+    M10_washer,
+    M3_rubber_washer
+];
 
 function washer_diameter(type)  = type[1];
 function washer_radius(type)    = type[1]/2;
 function washer_clearance_radius(type) = type[1]/2 + 0.2;
 function washer_thickness(type) = type[2];
 function washer_soft(type)      = type[3];
-function washer_color(type) = washer_soft(type) ? soft_washer_color : hard_washer_color;
+function washer_color(type) = washer_soft(type) ? Grey20 : MetalColor;
 function star_washer_diameter(type) = type[4];
+
+
+module washer_Catalogue() {
+    // output a set of vitamin() calls to be used to construct the vitamin catalogue
+    for (t = washer_types) washer(t);
+}
 
 module washer(type=M4_washer, ExplodeSpacing=10) {
     hole = type[0];

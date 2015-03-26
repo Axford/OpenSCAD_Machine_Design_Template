@@ -26,7 +26,7 @@ def output_vitamin(v):
     md += '--- | --- | ---\n'
 
     for t in v['types']:
-        md += t['title'] + " | " + t['call'] + " | "
+        md += t['title'] + " | `" + t['call'] + "` | "
 
         # per view
         for view in t['children']:

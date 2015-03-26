@@ -61,6 +61,7 @@ def startaproject(proj_parent_path, proj_name):
 
     print("Copy doc templates, etc")
     try:
+        copy2("../docs/VitaminCatalogue.htm",proj_path + "/hardware/docs/VitaminCatalogue.htm")
         copytree("../docs/templates", proj_path + '/hardware/docs/templates', ignore=ignore_patterns('*.pyc', 'tmp*'))
         copytree("../docs/css", proj_path + '/hardware/docs/css', ignore=ignore_patterns('*.pyc', 'tmp*'))
         copytree("../docs/js", proj_path + '/hardware/docs/js', ignore=ignore_patterns('*.pyc', 'tmp*'))

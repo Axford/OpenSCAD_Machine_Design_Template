@@ -30,6 +30,13 @@ Breadboard 170 | `Breadboard(Breadboard_170)` | ![Breadboard 170](../vitamins/im
 Breadboard 270 | `Breadboard(Breadboard_270)` | ![Breadboard 270](../vitamins/images/Breadboard270_view.png)
 Breadboard 400 | `Breadboard(Breadboard_400)` | ![Breadboard 400](../vitamins/images/Breadboard400_view.png)
 
+## vitamins/DCMotor.scad
+
+Title | Call | Image
+--- | --- | ---
+R260 DC Motor | `DCMotor(DCMotor_R260)` | ![R260 DC Motor](../vitamins/images/R260DCMotor_view.png)
+CL072014 DC Motor | `DCMotor(DCMotor_CL072014)` | ![CL072014 DC Motor](../vitamins/images/CL072014DCMotor_view.png)
+
 ## vitamins/ESC.scad
 
 Title | Call | Image

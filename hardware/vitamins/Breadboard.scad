@@ -35,7 +35,7 @@ Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,            
 Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,          4.5,       "400"  ];
 
 
-Breadboard_types = [
+Breadboard_Types = [
 	Breadboard_170,
 	Breadboard_270,
 	Breadboard_400
@@ -43,7 +43,7 @@ Breadboard_types = [
 
 module Breadboard_Catalogue() {
     // output a set of vitamin() calls to be used to construct the vitamin catalogue
-    for (t = Breadboard_types) Breadboard(t);
+    for (t = Breadboard_Types) Breadboard(t);
 }
 
 // Breadboard Type Getters

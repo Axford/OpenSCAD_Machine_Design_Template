@@ -8,7 +8,7 @@
 // Washers
 //
 
-use <../vitamins/washer.scad>
+include <../vitamins/washer.scad>
 
 M2_nut      = [2, 4.3, 1.6, 3.5,    M2_washer,     M2_nut_trap_depth, "M2_nut", false];
 M2p5_nut  = [2.5, 5.8, 2.2, 3.8,  M2p5_washer, M2p5_nut_trap_depth, "M2p5_nut", false];
@@ -59,10 +59,7 @@ module nut(type=M4_nut, nyloc = false, brass = false, ExplodeSpacing=10) {
         view(d=200);
     }
 
-    if(exploded && nyloc)
-        cylinder(r = 0.2, h = 10);
-
-    color(brass? brass_nut_color : nut_color) render() translate([0, 0, (exploded && nyloc) ? 10 : 0]) difference() {
+    color(brass? brass_nut_color : nut_color) render() difference() {
         union() {
             cylinder(r = outer_rad, h = thickness, $fn = 6);
             if(nyloc)
@@ -79,8 +76,7 @@ module nut(type=M4_nut, nyloc = false, brass = false, ExplodeSpacing=10) {
 
 module nut_and_washer(type, nyloc) {
     washer = nut_washer(type);
-    translate([0, 0, exploded ? 7 : 0])
-        washer(washer);
+    washer(washer);
     translate([0,0, washer_thickness(washer)])
         nut(type, nyloc);
 }
@@ -100,11 +96,10 @@ module wingnut(type) {
     top_angle = asin((wing_thickness / 2) / top_rad);
     bottom_angle = asin((wing_thickness / 2) / bottom_rad);
 
+    // TODO: Move to new vitamin file!
     vitamin(str("WING0", type[0], ": Wingnut M",type[0]));
-    if(exploded)
-        cylinder(r = 0.2, h = 10);
 
-    color(nut_color) render() translate([0, 0, exploded ? 10 : 0]) difference() {
+    color(nut_color) render() difference() {
         union() {
             cylinder(r1 = bottom_rad, r2 = top_rad, h = thickness);
             for(rot = [0, 180])

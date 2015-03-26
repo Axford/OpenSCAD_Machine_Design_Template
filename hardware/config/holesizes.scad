@@ -9,6 +9,11 @@ No2_clearance_radius = 2.5 / 2;
 No4_clearance_radius = 3.5 / 2;
 No6_clearance_radius = 4.0 / 2;
 
+M2_tap_radius = 2 / 2;
+M2_clearance_radius = 2.3 / 2;
+M2_nut_radius = 5 / 2;
+M2_nut_trap_depth = 2;
+
 M2p5_tap_radius = 2.05 / 2;
 M2p5_clearance_radius= 2.8 / 2;   // M2.5
 M2p5_nut_trap_depth = 2.5;

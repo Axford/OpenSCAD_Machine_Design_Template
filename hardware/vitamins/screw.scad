@@ -8,8 +8,8 @@
 // Screws
 //
 
-use <../vitamins/washer.scad>
-use <../vitamins/nut.scad>
+include <../vitamins/washer.scad>
+include <../vitamins/nut.scad>
 
 hs_cap = 0;
 hs_pan = 1;
@@ -131,7 +131,7 @@ module screw(type=M4_cap_screw, length=20, hob_point = 0) {
     rad = screw_radius(type) - eta;
     head_rad = screw_head_radius(type);
 
-    translate([0, 0, exploded ? length + 10 : 0]) {
+    {
         if(head_type == hs_cap) {
             assign(head_height = rad * 2,
                    socket_rad = type[5] / cos(30) / 2,
@@ -170,7 +170,7 @@ module screw(type=M4_cap_screw, length=20, hob_point = 0) {
                    socket_depth = 0.5 * type[5])
             color(screw_pan_color) render() difference() {
                 union() {
-                    rounded_cylinder(r = head_rad, h = head_height, r2 = head_height / 2);
+                    roundedCylinder(r = head_rad, h = head_height, r2 = head_height / 2);
                     translate([0,0, - length + eta])
                         cylinder(r = rad, h = length);
                 }
@@ -204,12 +204,10 @@ module screw(type=M4_cap_screw, length=20, hob_point = 0) {
 
 module screw_and_washer(type, length, spring = false) {
     washer = screw_washer(type);
-    translate([0, 0, exploded * 6])
-        washer(washer);
+    washer(washer);
     translate([0,0, washer_thickness(washer)]) {
         if(spring) {
-            translate([0, 0, exploded ? 8 : 0])
-                star_washer(washer);
+            star_washer(washer);
             translate([0,0, washer_thickness(washer)])
                 screw(type, length);
         }

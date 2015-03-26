@@ -1,5 +1,5 @@
 include <../config/config.scad>
-include <../vitamins/washer.scad>
+include <../vitamins/nut.scad>
 
 STLPath = "printedparts/stl/";
 VitaminSTL = "vitamins/stl/";
@@ -9,4 +9,4 @@ DebugConnectors = false;
 
 UseSTL = true;
 
-washer_Catalogue();
+washer(M4_washer);

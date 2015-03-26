@@ -1,12 +1,13 @@
 include <../config/config.scad>
-include <../vitamins/nut.scad>
+include <../vitamins/wingnut.scad>
 
-STLPath = "printedparts/stl/";
-VitaminSTL = "vitamins/stl/";
+STLPath = "../printedparts/stl/";
+VitaminSTL = "../vitamins/stl/";
 
 DebugCoordinateFrames = 0;
 DebugConnectors = false;
 
-UseSTL = true;
+UseSTL = false;
+UseVitaminSTL = true;
 
-washer(M4_washer);
+wingnut();

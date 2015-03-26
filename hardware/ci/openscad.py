@@ -39,11 +39,11 @@ def render_stl(scadname, stlpath, obj_call, includes=[]):
     f.write("include <../config/config.scad>\n")
     for i in includes:
         f.write("include <"+i+">\n")
-    f.write("UseSTL=false;\n");
-    f.write("UseVitaminSTL=false;\n");
-    f.write("DebugConnectors=false;\n");
-    f.write("DebugCoordinateFrames=false;\n");
-    f.write(obj_call + ";\n");
+    f.write("UseSTL=false;\n")
+    f.write("UseVitaminSTL=false;\n")
+    f.write("DebugConnectors=false;\n")
+    f.write("DebugCoordinateFrames=false;\n")
+    f.write(obj_call + ";\n")
     f.close()
 
     run("-o", stlpath, scadname)

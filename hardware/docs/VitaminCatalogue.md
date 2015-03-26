@@ -131,3 +131,9 @@ Title | Call | Image
 --- | --- | ---
 WFLY Receiver | `WFLYReceiver()` | ![WFLY Receiver](../vitamins/images/WFLYReceiver_view.png)
 
+## vitamins/wingnut.scad
+
+Title | Call | Image
+--- | --- | ---
+Wingnut M4 | `wingnut(M4_wingnut)` | ![Wingnut M4](../vitamins/images/WingnutM4_view.png)
+

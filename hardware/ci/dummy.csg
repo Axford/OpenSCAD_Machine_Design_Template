@@ -58,67 +58,53 @@ group() {
 											group();
 											group();
 											group() {
-												group() {
-													group() {
-														group();
-														group() {
+												color([0.2, 0.2, 0.2, 1]) {
+													render(convexity = 5) {
+														union() {
 															group() {
-																group() {
-																	group();
+																linear_extrude(height = 2.5, center = true, convexity = 5, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.5) {
+																	difference() {
+																		circle($fn = 0, $fa = 5, $fs = 0.5, r = 13);
+																		circle($fn = 0, $fa = 5, $fs = 0.5, r = 12);
+																	}
 																}
-																group() {
-																	group();
-																}
-																group() {
-																	group();
-																}
-																group() {
-																	group() {
-																		group();
-																		group() {
-																			group() {
-																				group();
-																			}
-																			group();
+															}
+															multmatrix([[1, 0, 0, 0], [0, 1, 0, -12], [0, 0, 1, -2.125], [0, 0, 0, 1]]) {
+																multmatrix([[0.99985, 3.46945e-18, -0.0172968, 0], [-0.0172968, 0, -0.99985, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+																	union() {
+																		cube(size = [4.7, 4.25, 3], center = false);
+																		multmatrix([[1, 0, 0, 2.35], [0, 1, 0, 2.125], [0, 0, 1, 2], [0, 0, 0, 1]]) {
+																			cube(size = [1, 2.5, 4], center = true);
 																		}
 																	}
 																}
 															}
-														}
-														group();
-													}
-												}
-												color([0.6, 0.6, 0.6, 1]) {
-													group() {
-														group() {
-															difference() {
-																union() {
-																	cylinder($fn = 0, $fa = 5, $fs = 0.5, h = 3.75, r1 = 5, r2 = 4, center = false);
-																	group() {
-																		multmatrix([[1, 0, 0, 0], [0, 2.22045e-16, -1, 0], [0, 1, 2.22045e-16, 0], [0, 0, 0, 1]]) {
-																			linear_extrude(height = 3, center = true, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.5) {
-																				hull() {
-																					multmatrix([[1, 0, 0, 8], [0, 1, 0, 7], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																						circle($fn = 0, $fa = 5, $fs = 0.5, r = 3);
+															group() {
+																multmatrix([[1, 0, 0, 2.35], [0, 1, 0, -14.125], [0, 0, 1, -1.25], [0, 0, 0, 1]]) {
+																	multmatrix([[-1, -1.22465e-16, 0, 0], [1.22465e-16, -1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+																		group() {
+																			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 2.5], [0, 0, 0, 1]]) {
+																				multmatrix([[2.22045e-16, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 2.22045e-16, 0], [0, 0, 0, 1]]) {
+																					group() {
+																						multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+																							linear_extrude(height = 1, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.5) {
+																								group() {
+																									hull() {
+																										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0.625], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+																											square(size = [2.5, 18.75], center = false);
+																										}
+																										multmatrix([[1, 0, 0, 0.625], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+																											square(size = [1.25, 20], center = false);
+																										}
+																									}
+																								}
+																							}
+																						}
 																					}
-																					polygon(points = [[4.62512, 0], [8, 7], [3.6981, 3.75], [4.62512, 0]], paths = undef, convexity = 1);
-																				}
-																			}
-																		}
-																		multmatrix([[-1, -2.46519e-32, 1.22465e-16, 0], [1.22465e-16, -2.22045e-16, 1, 0], [0, 1, 2.22045e-16, 0], [0, 0, 0, 1]]) {
-																			linear_extrude(height = 3, center = true, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.5) {
-																				hull() {
-																					multmatrix([[1, 0, 0, 8], [0, 1, 0, 7], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																						circle($fn = 0, $fa = 5, $fs = 0.5, r = 3);
-																					}
-																					polygon(points = [[4.62512, 0], [8, 7], [3.6981, 3.75], [4.62512, 0]], paths = undef, convexity = 1);
 																				}
 																			}
 																		}
 																	}
-																}
-																multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 0, 1]]) {
-																	cylinder($fn = 0, $fa = 5, $fs = 0.5, h = 5.75, r1 = 2, r2 = 2, center = false);
 																}
 															}
 														}

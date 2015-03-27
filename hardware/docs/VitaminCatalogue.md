@@ -144,3 +144,9 @@ Title | Call | Image
 --- | --- | ---
 Wingnut M4 | `wingnut(M4_wingnut)` | ![Wingnut M4](../vitamins/images/WingnutM4_view.png)
 
+## vitamins/Ziptie.scad
+
+Title | Call | Image
+--- | --- | ---
+2.5mm x 100mm Ziptie | `Ziptie(Ziptie_2p5, r=12, l=100, trim=false)` | ![2.5mm x 100mm Ziptie](../vitamins/images/25mmx100mmZiptie_view.png)
+

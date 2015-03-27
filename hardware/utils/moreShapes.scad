@@ -103,6 +103,18 @@ module rightTriangle(width,height,center=true) {
 }
 
 
+// truss members forms a single diagonal element between two points
+// the ends of the truss element are circular, of radius w/2
+module trussProfile(p1, p2, w) {
+	hull() {
+		translate(p1)
+			circle(r=w/2);
+		translate(p2)
+			circle(r=w/2);
+	}
+}
+
+
 // chevron
 // -------
 // Width is along x, height is along y, points towards y+
@@ -219,10 +231,20 @@ module allRoundedRect(size, radius, center=false) {
 }
 
 
-module chamferedCube(size, chamfer, center=false) {
+module chamferedCube(size, chamfer, center=false, shell=0) {
 	translate([0,0, center ? -size[2]/2 : 0])
 		linear_extrude(size[2])
-		chamferedSquare(size, chamfer, center=center);
+		chamferedSquare(size, chamfer, center=center, shell=shell);
+}
+
+module chamferedCubeX(size, chamfer, center=false, shell=0) {
+	// X-axis aligned
+	translate([0,0,center?0:size[2]]) rotate([0,90,0]) chamferedCube([size[2],size[1],size[0]], chamfer, center, shell);
+}
+
+module chamferedCubeY(size, chamfer, center=false, shell=0) {
+	// Y-axis aligned
+	translate([0,0,center?0:size[2]]) rotate([-90,0,0]) chamferedCube([size[0],size[2],size[1]], chamfer, center, shell);
 }
 
 
@@ -403,6 +425,19 @@ module minSupportBeamY(size=[0,0,0], bridge=5, air=0, center=false) {
 	translate([size[0], 0, 0])
 		rotate([0,0,90])
 		minSupportBeam([size[1], size[0], size[2]], bridge, air, center=center);
+}
+
+
+// assumes p1,p2 lie in XY plane, shifted to p1[2]
+module trussMember(p1,p2,w,t, cross=false) {
+	translate([0,0,p1[2]])
+		linear_extrude(t)
+		trussProfile(p1,p2,w);
+
+	if (cross)
+		translate([0,0,p1[2]])
+			linear_extrude(t)
+			trussProfile([p2[0],p1[1]], [p1[0],p2[1]], w);
 }
 
 

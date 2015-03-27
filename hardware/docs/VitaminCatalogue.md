@@ -115,6 +115,15 @@ No6 pan wood screw x 20mm | `screw(type=No6_screw,length=20, hob_point=0 )` | ![
 No6 cs  wood screw x 20mm | `screw(type=No6_cs_screw,length=20, hob_point=0 )` | ![No6 cs  wood screw x 20mm](../vitamins/images/No6cswoodscrewx20mm_view.png)
 6-32 pan screw x 20mm | `screw(type=No632_pan_screw,length=20, hob_point=0 )` | ![6-32 pan screw x 20mm](../vitamins/images/632panscrewx20mm_view.png)
 
+## vitamins/StepperMotor.scad
+
+Title | Call | Image
+--- | --- | ---
+NEMA17 Stepper Motor | `StepperMotor(StepperMotor_NEMA17)` | ![NEMA17 Stepper Motor](../vitamins/images/NEMA17StepperMotor_view.png)
+NEMA17S Stepper Motor | `StepperMotor(StepperMotor_NEMA17S)` | ![NEMA17S Stepper Motor](../vitamins/images/NEMA17SStepperMotor_view.png)
+NEMA14 Stepper Motor | `StepperMotor(StepperMotor_NEMA14)` | ![NEMA14 Stepper Motor](../vitamins/images/NEMA14StepperMotor_view.png)
+NEMA11 Stepper Motor | `StepperMotor(StepperMotor_NEMA11)` | ![NEMA11 Stepper Motor](../vitamins/images/NEMA11StepperMotor_view.png)
+
 ## vitamins/washer.scad
 
 Title | Call | Image

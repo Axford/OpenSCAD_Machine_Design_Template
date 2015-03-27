@@ -13,34 +13,44 @@ ${name}_Con_Def				= [ [0,0,0], [0,0,-1], 0, 0, 0];
 
 module ${name}(complete=false) {
 
-    a_variable = 10;
-
     if (DebugCoordinateFrames) frame();
     if (DebugConnectors) {
         connector(${name}_Con_Def);
     }
 
     cutPart(
-        "cutparts/{$name}.scad",
-        "{$description}",
-        "{$name}()",
-        "{$name}(true)",
-        1,   // how many steps
+        "cutparts/${name}.scad",
+        "${description}",
+        "${name}()",  // call to use to show a particular step
+        "${name}(true)",  // call to use to show final part
+        3,   // how many steps
         complete  // show as complete?  i.e. last step!
         ) {
 
-        view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);
+        // Most cut parts use a difference...
+        difference() {
+            step(1, "Start with a block of something") {
+                view();
 
-        // Step one - first cut!
-        step(1, str("Cut some material to ", a_variable,"mm long")) {
-            view(t=vt, r=vr);
+                cube([10, 10, 10]);
+            }
 
-            // the result of the cut is:
-            cube([10, a_variable, 10]);
+            step(2, "Drill a 4mm hole through the middle") {
+                view();
+
+                cylinder(r=2, h=100, center=true);
+            }
+
+            step(3, "Countersink the hole") {
+                view();
+
+                translate([0,0,3])
+                    cylinder(r1=2, r2=5, h=3);
+            }
+
+            // Put further processing steps below, e.g. more cuts, drilling holes
+
         }
-
-        // Put further processing steps below, e.g. more cuts, drilling holes
-        // step(2, ...)
 
     }
 }

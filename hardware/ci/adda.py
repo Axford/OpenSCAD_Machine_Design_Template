@@ -34,6 +34,15 @@ def adda(t, n, d):
         module = n + "_STL"
         sandbox = n
 
+    elif t == "cutpart":
+        print("Creating cutpart")
+
+        templateFile = "cutpart.scad"
+        outFile = "../cutparts/" + n + ".scad"
+        configFile = "../config/cutparts.scad"
+        module = n
+        sandbox = n
+
 
     elif t == "vitamin":
         print("Creating vitamin")
@@ -87,4 +96,4 @@ if __name__ == '__main__':
         adda(sys.argv[1], sys.argv[2], sys.argv[3] )
     else:
         print("Usage: ./adda.py <type> <name> <description>")
-        print("Types: assembly | printedpart | vitamin")
+        print("Types: assembly | cutpart | printedpart | vitamin")

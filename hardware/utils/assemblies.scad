@@ -35,7 +35,7 @@ module attrNumArray(name, a) {
         echo(str(" '",name,"': ["));
         for (i=[0:len(a)-1]) {
            if (i > 0) echo(",");
-           echo(str(a[i])); 
+           echo(str(a[i]));
         }
         echo(str("], "));
     }
@@ -66,7 +66,7 @@ module assembly(file, title, call, customAttrs=false) {
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
@@ -81,15 +81,14 @@ module printedPart(file, title, call, customAttrs=false) {
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
 }
 
 module cutPart(file, title, call, completeCall, finalStep, showComplete=false, customAttrs=false) {
-	assign($CutPart=true)
-    assign($ShowStep = (showComplete ? finalStep : $ShowStep))
+	assign($ShowStep = (showComplete ? finalStep : $ShowStep))
     object(true) {
         attr("type","cut");
         attr("file",file);
@@ -99,7 +98,7 @@ module cutPart(file, title, call, completeCall, finalStep, showComplete=false, c
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
@@ -114,7 +113,7 @@ module vitamin(file, title, call, customAttrs=false) {
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
@@ -129,7 +128,7 @@ module part(title, call, customAttrs=false) {
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
@@ -143,7 +142,7 @@ module machine(file, title, customAttrs=false) {
         if (customAttrs) {
             children();
         } else {
-            attrArray("children", true) 
+            attrArray("children", true)
                 children();
         }
     }
@@ -151,7 +150,7 @@ module machine(file, title, customAttrs=false) {
 
 module contains() {
     attrArray("children")
-        children();    
+        children();
 }
 
 // Control visibility and explosion of assembly steps
@@ -161,8 +160,8 @@ module step(num=1, desc="") {
     attr("num",num, raw=true);
     attr("desc",desc);
     attrArray("children", false);
-    
-    if (num <= $ShowStep && (($CutPart ? num == $ShowStep : true) || $ShowBOM)) {
+
+    if (num <= $ShowStep) {
         assign($Explode= (num == $ShowStep ? true : false), $ShowStep=100 )
             children();
     }

@@ -29,6 +29,9 @@ function Ziptie_LatchSize(t)   = t[3];
 // Type table
 //            ts,      w,   t, LatchSize
 Ziptie_2p5 = ["2p5",   2.5, 1, [4.7, 4.25, 3]];
+Ziptie_3p6 = ["3p6",   3.6, 1, [4.7, 4.25, 3]];  //todo: finish these!
+Ziptie_4p8 = ["4p8",   4.8, 1, [4.7, 4.25, 3]];
+Ziptie_7p6 = ["7p6",   7.6, 1, [4.7, 4.25, 3]];
 
 
 

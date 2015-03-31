@@ -1,12 +1,122 @@
 # Vitamin Catalogue
 
-## vitamins/APM25.scad
+### Contents
+ * [APM25.scad ](#apm25scad)
+ * [Breadboard.scad ](#breadboardscad)
+ * [DCMotor.scad ](#dcmotorscad)
+ * [ESC.scad ](#escscad)
+ * [FTDIBreakout.scad ](#ftdibreakoutscad)
+ * [GPS.scad ](#gpsscad)
+ * [JumperWire.scad ](#jumperwirescad)
+ * [MicroServo.scad ](#microservoscad)
+ * [NeopixelRing.scad ](#neopixelringscad)
+ * [StepperMotor.scad ](#steppermotorscad)
+ * [StockMetal.scad ](#stockmetalscad)
+ * [WFLYReceiver.scad ](#wflyreceiverscad)
+ * [Ziptie.scad ](#ziptiescad)
+ * [ball\_bearing.scad ](#ball_bearingscad)
+ * [nut.scad ](#nutscad)
+ * [screw.scad ](#screwscad)
+ * [washer.scad ](#washerscad)
+ * [wingnut.scad ](#wingnutscad)
+
+
+## APM25.scad
 
 Title | Call | Image
 --- | --- | ---
 APM 2.5 | `APM25()` | ![APM 2.5](../vitamins/images/APM25_view.png)
 
-## vitamins/ball_bearing.scad
+## Breadboard.scad
+
+Title | Call | Image
+--- | --- | ---
+Breadboard 170 | `Breadboard(Breadboard_170)` | ![Breadboard 170](../vitamins/images/Breadboard170_view.png)
+Breadboard 270 | `Breadboard(Breadboard_270)` | ![Breadboard 270](../vitamins/images/Breadboard270_view.png)
+Breadboard 400 | `Breadboard(Breadboard_400)` | ![Breadboard 400](../vitamins/images/Breadboard400_view.png)
+
+## DCMotor.scad
+
+Title | Call | Image
+--- | --- | ---
+R260 DC Motor | `DCMotor(DCMotor_R260)` | ![R260 DC Motor](../vitamins/images/R260DCMotor_view.png)
+CL072014 DC Motor | `DCMotor(DCMotor_CL072014)` | ![CL072014 DC Motor](../vitamins/images/CL072014DCMotor_view.png)
+
+## ESC.scad
+
+Title | Call | Image
+--- | --- | ---
+ESC | `ESC()` | ![ESC](../vitamins/images/ESC_view.png)
+
+## FTDIBreakout.scad
+
+Title | Call | Image
+--- | --- | ---
+Sparkfun FTDI Breakout | `FTDIBreakout()` | ![Sparkfun FTDI Breakout](../vitamins/images/SparkfunFTDIBreakout_view.png)
+
+## GPS.scad
+
+Title | Call | Image
+--- | --- | ---
+GPS Module | `GPS()` | ![GPS Module](../vitamins/images/GPSModule_view.png)
+
+## JumperWire.scad
+
+Title | Call | Image
+--- | --- | ---
+JumperWire Male to Male 2pin 100mm | `JumperWire(type=JumperWire_MM2, length=100)` | ![JumperWire Male to Male 2pin 100mm](../vitamins/images/JumperWireMaletoMale2pin100mm_view.png)
+
+## MicroServo.scad
+
+Title | Call | Image
+--- | --- | ---
+9g Micro Servo | `MicroServo()` | ![9g Micro Servo](../vitamins/images/9gMicroServo_view.png)
+
+## NeopixelRing.scad
+
+Title | Call | Image
+--- | --- | ---
+Neopixel Ring 16 | `NeopixelRing()` | ![Neopixel Ring 16](../vitamins/images/NeopixelRing16_view.png)
+
+## StepperMotor.scad
+
+Title | Call | Image
+--- | --- | ---
+NEMA17 Stepper Motor | `StepperMotor(StepperMotor_NEMA17)` | ![NEMA17 Stepper Motor](../vitamins/images/NEMA17StepperMotor_view.png)
+NEMA17S Stepper Motor | `StepperMotor(StepperMotor_NEMA17S)` | ![NEMA17S Stepper Motor](../vitamins/images/NEMA17SStepperMotor_view.png)
+NEMA14 Stepper Motor | `StepperMotor(StepperMotor_NEMA14)` | ![NEMA14 Stepper Motor](../vitamins/images/NEMA14StepperMotor_view.png)
+NEMA11 Stepper Motor | `StepperMotor(StepperMotor_NEMA11)` | ![NEMA11 Stepper Motor](../vitamins/images/NEMA11StepperMotor_view.png)
+
+## StockMetal.scad
+
+Title | Call | Image
+--- | --- | ---
+Aluminium Angle 20x20x3mm x 100mm | `StockMetal(type=StockMetal_Angle_20x20x3, size=100, material=Material_Alu)` | ![Aluminium Angle 20x20x3mm x 100mm](../vitamins/images/AluminiumAngle20x20x3mmx100mm_view.png)
+Aluminium Angle 30x20x1.5mm x 100mm | `StockMetal(type=StockMetal_Angle_30x20x1p5, size=100, material=Material_Alu)` | ![Aluminium Angle 30x20x1.5mm x 100mm](../vitamins/images/AluminiumAngle30x20x15mmx100mm_view.png)
+Aluminium Box Section 30x30x3mm x 100mm | `StockMetal(type=StockMetal_Box_30x30x3, size=100, material=Material_Alu)` | ![Aluminium Box Section 30x30x3mm x 100mm](../vitamins/images/AluminiumBoxSection30x30x3mmx100mm_view.png)
+Aluminium Channel 40x25x3x3mm x 100mm | `StockMetal(type=StockMetal_Channel_40x25x3x3, size=100, material=Material_Alu)` | ![Aluminium Channel 40x25x3x3mm x 100mm](../vitamins/images/AluminiumChannel40x25x3x3mmx100mm_view.png)
+Aluminium Channel 4x1x1/8x1/8 in x 100mm | `StockMetal(type=StockMetal_Channel_4x1x1d8x1d8i, size=100, material=Material_Alu)` | ![Aluminium Channel 4x1x1/8x1/8 in x 100mm](../vitamins/images/AluminiumChannel4x1x18x18inx100mm_view.png)
+Aluminium Round Bar 6mm x 100mm | `StockMetal(type=StockMetal_RoundBar_6, size=100, material=Material_Alu)` | ![Aluminium Round Bar 6mm x 100mm](../vitamins/images/AluminiumRoundBar6mmx100mm_view.png)
+Aluminium Round Bar 8mm x 100mm | `StockMetal(type=StockMetal_RoundBar_8, size=100, material=Material_Alu)` | ![Aluminium Round Bar 8mm x 100mm](../vitamins/images/AluminiumRoundBar8mmx100mm_view.png)
+Aluminium Round Bar 10mm x 100mm | `StockMetal(type=StockMetal_RoundBar_10, size=100, material=Material_Alu)` | ![Aluminium Round Bar 10mm x 100mm](../vitamins/images/AluminiumRoundBar10mmx100mm_view.png)
+Aluminium Round Bar 12mm x 100mm | `StockMetal(type=StockMetal_RoundBar_12, size=100, material=Material_Alu)` | ![Aluminium Round Bar 12mm x 100mm](../vitamins/images/AluminiumRoundBar12mmx100mm_view.png)
+Aluminium Round Bar 20mm x 100mm | `StockMetal(type=StockMetal_RoundBar_20, size=100, material=Material_Alu)` | ![Aluminium Round Bar 20mm x 100mm](../vitamins/images/AluminiumRoundBar20mmx100mm_view.png)
+Aluminium Tube 10x1mm x 100mm | `StockMetal(type=StockMetal_Tube_10x1, size=100, material=Material_Alu)` | ![Aluminium Tube 10x1mm x 100mm](../vitamins/images/AluminiumTube10x1mmx100mm_view.png)
+Aluminium Tube 10x1.5mm x 100mm | `StockMetal(type=StockMetal_Tube_10x1p5, size=100, material=Material_Alu)` | ![Aluminium Tube 10x1.5mm x 100mm](../vitamins/images/AluminiumTube10x15mmx100mm_view.png)
+
+## WFLYReceiver.scad
+
+Title | Call | Image
+--- | --- | ---
+WFLY Receiver | `WFLYReceiver()` | ![WFLY Receiver](../vitamins/images/WFLYReceiver_view.png)
+
+## Ziptie.scad
+
+Title | Call | Image
+--- | --- | ---
+2.5mm x 100mm Ziptie | `Ziptie(Ziptie_2p5, r=12, l=100, trim=false)` | ![2.5mm x 100mm Ziptie](../vitamins/images/25mmx100mmZiptie_view.png)
+
+## ball_bearing.scad
 
 Title | Call | Image
 --- | --- | ---
@@ -16,58 +126,7 @@ Ball Bearing 608 | `ball_bearing(BB608)` | ![Ball Bearing 608](../vitamins/image
 Ball Bearing 625_2RS | `ball_bearing(BB625_2RS)` | ![Ball Bearing 625_2RS](../vitamins/images/BallBearing625_2RS_view.png)
 Ball Bearing 6205_2RS | `ball_bearing(BB6205_2RS)` | ![Ball Bearing 6205_2RS](../vitamins/images/BallBearing6205_2RS_view.png)
 
-## vitamins/Breadboard.scad
-
-Title | Call | Image
---- | --- | ---
-Breadboard 170 | `Breadboard(Breadboard_170)` | ![Breadboard 170](../vitamins/images/Breadboard170_view.png)
-Breadboard 270 | `Breadboard(Breadboard_270)` | ![Breadboard 270](../vitamins/images/Breadboard270_view.png)
-Breadboard 400 | `Breadboard(Breadboard_400)` | ![Breadboard 400](../vitamins/images/Breadboard400_view.png)
-
-## vitamins/DCMotor.scad
-
-Title | Call | Image
---- | --- | ---
-R260 DC Motor | `DCMotor(DCMotor_R260)` | ![R260 DC Motor](../vitamins/images/R260DCMotor_view.png)
-CL072014 DC Motor | `DCMotor(DCMotor_CL072014)` | ![CL072014 DC Motor](../vitamins/images/CL072014DCMotor_view.png)
-
-## vitamins/ESC.scad
-
-Title | Call | Image
---- | --- | ---
-ESC | `ESC()` | ![ESC](../vitamins/images/ESC_view.png)
-
-## vitamins/FTDIBreakout.scad
-
-Title | Call | Image
---- | --- | ---
-Sparkfun FTDI Breakout | `FTDIBreakout()` | ![Sparkfun FTDI Breakout](../vitamins/images/SparkfunFTDIBreakout_view.png)
-
-## vitamins/GPS.scad
-
-Title | Call | Image
---- | --- | ---
-GPS Module | `GPS()` | ![GPS Module](../vitamins/images/GPSModule_view.png)
-
-## vitamins/JumperWire.scad
-
-Title | Call | Image
---- | --- | ---
-JumperWire Male to Male 2pin 100mm | `JumperWire(type=JumperWire_MM2, length=100)` | ![JumperWire Male to Male 2pin 100mm](../vitamins/images/JumperWireMaletoMale2pin100mm_view.png)
-
-## vitamins/MicroServo.scad
-
-Title | Call | Image
---- | --- | ---
-9g Micro Servo | `MicroServo()` | ![9g Micro Servo](../vitamins/images/9gMicroServo_view.png)
-
-## vitamins/NeopixelRing.scad
-
-Title | Call | Image
---- | --- | ---
-Neopixel Ring 16 | `NeopixelRing()` | ![Neopixel Ring 16](../vitamins/images/NeopixelRing16_view.png)
-
-## vitamins/nut.scad
+## nut.scad
 
 Title | Call | Image
 --- | --- | ---
@@ -81,7 +140,7 @@ M6 Half Nut | `nut(type=M6_half_nut,nyloc=false,brass=false )` | ![M6 Half Nut](
 M8 Nut | `nut(type=M8_nut,nyloc=false,brass=false )` | ![M8 Nut](../vitamins/images/M8Nut_view.png)
 M10 Nut | `nut(type=M10_nut,nyloc=false,brass=false )` | ![M10 Nut](../vitamins/images/M10Nut_view.png)
 
-## vitamins/screw.scad
+## screw.scad
 
 Title | Call | Image
 --- | --- | ---
@@ -109,16 +168,7 @@ No6 pan wood screw x 20mm | `screw(type=No6_screw,length=20, hob_point=0 )` | ![
 No6 cs  wood screw x 20mm | `screw(type=No6_cs_screw,length=20, hob_point=0 )` | ![No6 cs  wood screw x 20mm](../vitamins/images/No6cswoodscrewx20mm_view.png)
 6-32 pan screw x 20mm | `screw(type=No632_pan_screw,length=20, hob_point=0 )` | ![6-32 pan screw x 20mm](../vitamins/images/632panscrewx20mm_view.png)
 
-## vitamins/StepperMotor.scad
-
-Title | Call | Image
---- | --- | ---
-NEMA17 Stepper Motor | `StepperMotor(StepperMotor_NEMA17)` | ![NEMA17 Stepper Motor](../vitamins/images/NEMA17StepperMotor_view.png)
-NEMA17S Stepper Motor | `StepperMotor(StepperMotor_NEMA17S)` | ![NEMA17S Stepper Motor](../vitamins/images/NEMA17SStepperMotor_view.png)
-NEMA14 Stepper Motor | `StepperMotor(StepperMotor_NEMA14)` | ![NEMA14 Stepper Motor](../vitamins/images/NEMA14StepperMotor_view.png)
-NEMA11 Stepper Motor | `StepperMotor(StepperMotor_NEMA11)` | ![NEMA11 Stepper Motor](../vitamins/images/NEMA11StepperMotor_view.png)
-
-## vitamins/washer.scad
+## washer.scad
 
 Title | Call | Image
 --- | --- | ---
@@ -135,21 +185,8 @@ M8 Washer 30x1.5 | `washer(type=M8_penny_washer)` | ![M8 Washer 30x1.5](../vitam
 M10 Washer 21x2.2 | `washer(type=M10_washer)` | ![M10 Washer 21x2.2](../vitamins/images/M10Washer21x22_view.png)
 M3 Rubber Washer 10x1.5 | `washer(type=M3_rubber_washer)` | ![M3 Rubber Washer 10x1.5](../vitamins/images/M3RubberWasher10x15_view.png)
 
-## vitamins/WFLYReceiver.scad
-
-Title | Call | Image
---- | --- | ---
-WFLY Receiver | `WFLYReceiver()` | ![WFLY Receiver](../vitamins/images/WFLYReceiver_view.png)
-
-## vitamins/wingnut.scad
+## wingnut.scad
 
 Title | Call | Image
 --- | --- | ---
 Wingnut M4 | `wingnut(M4_wingnut)` | ![Wingnut M4](../vitamins/images/WingnutM4_view.png)
-
-## vitamins/Ziptie.scad
-
-Title | Call | Image
---- | --- | ---
-2.5mm x 100mm Ziptie | `Ziptie(Ziptie_2p5, r=12, l=100, trim=false)` | ![2.5mm x 100mm Ziptie](../vitamins/images/25mmx100mmZiptie_view.png)
-

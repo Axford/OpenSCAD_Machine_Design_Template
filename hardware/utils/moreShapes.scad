@@ -34,6 +34,15 @@ module circularSegment(radius, theta) {
 	}
 }
 
+module hollowSquare(outer=[10,10], inner=[0,0], center=false) {
+	// inner square is centred wrt outer square
+	translate([center ? 0 : outer[0]/2, center ? outer[1]/2 : 0, 0])
+		difference() {
+			square(outer, center=true);
+			square(inner, center=true);
+		}
+}
+
 module chamferedSquare(size, chamfer, center=false) {
 	hull() {
 		translate([0,center?0:chamfer,0])

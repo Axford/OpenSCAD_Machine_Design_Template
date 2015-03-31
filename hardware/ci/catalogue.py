@@ -17,10 +17,15 @@ from views import render_view;
 from views import view_filename;
 
 
+def vit_filename(v):
+    # return just the filaname component
+    # cheap hack - just assume all the paths start vitamins/
+    return v['file'][9:]
+
 def output_vitamin(v):
     md = ""
 
-    md += "## " + v['file'] + '\n\n'
+    md += "## " + vit_filename(v) + '\n\n'
 
     md += 'Title | Call | Image\n'
     md += '--- | --- | ---\n'
@@ -184,6 +189,9 @@ def parse_vitamin(vitaminscad, use_catalogue_call=False):
     return js
 
 
+def vit_file(v):
+    return v['file']
+
 def catalogue():
     print("Catalogue")
     print("---------")
@@ -255,6 +263,15 @@ def catalogue():
                     print("Exception: ")
                     print(e)
 
+        # table of contents
+        dom['vitamins'].sort(key=vit_file, reverse=False)
+        md += "### Contents\n"
+        for v in dom['vitamins']:
+            md += " * [" + vit_filename(v).replace('_','\\_') + " ](#" + vit_filename(v).replace('.','').lower() + ")\n"
+
+        md += "\n\n"
+
+        # vitamin tables
         for v in dom['vitamins']:
             md += output_vitamin(v)
 

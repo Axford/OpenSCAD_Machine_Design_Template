@@ -191,3 +191,11 @@ module markdown(section="introduction", markdown="") {
         attr("markdown",markdown);
     }
 }
+
+module debug(s="") {
+    if ($ShowBOM) {
+        // TODO: decide what to do here...
+    } else {
+        echo(s);
+    }
+}

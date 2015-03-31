@@ -1,11 +1,5 @@
 # Vitamin Catalogue
 
-## vitamins/3DRRadio.scad
-
-Title | Call | Image
---- | --- | ---
-3DR Radio | `3DRRadio()` | ![3DR Radio](../vitamins/images/3DRRadio_view.png)
-
 ## vitamins/APM25.scad
 
 Title | Call | Image

@@ -23,32 +23,13 @@
 */
 
 
+// Dependencies
+include <../vitamins/Material.scad>
+
+
 // Connectors
 
 StockMetal_Con_Def				= [ [0,0,0], [0,0,-1], 0, 0, 0];
-
-
-// Materials
-// ---------
-// Material specification and colour
-
-function Material_TypeSuffix(t)   = t[0];
-function Material_Description(t)  = t[1];
-function Material_Color(t)        = t[2];
-
-
-//              TypeSuffix,  Description,  Colour
-Material_Alu = ["Alu",       "Aluminium",  [0.7,0.7,0.7]];
-//Material_Alu5754
-//Material_Alu6082T6
-//Material_Alu6082T6
-//Material_Alu6063T6
-//Material_SS304
-//Material_SS
-//Material_Brass
-//Material_Copper
-//Material_ ??
-
 
 
 // Types

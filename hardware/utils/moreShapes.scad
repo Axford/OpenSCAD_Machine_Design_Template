@@ -384,6 +384,16 @@ module roundedCylinder(r, h, r2, roundBothEnds=false)
 		}
 }
 
+module chamferedCylinder(r, h, chamfer, center=false) {
+	translate([0,0, center ? -h/2 : 0])
+	rotate_extrude()
+		hull() {
+			square([r-chamfer, h]);
+			translate([0, chamfer,0])
+				square([r, h-2*chamfer]);
+		}
+}
+
 module sector3D(r, a, h, center = true) {
 	linear_extrude(height = h, center = center)
 		sector(r=r, a=a, center=center);

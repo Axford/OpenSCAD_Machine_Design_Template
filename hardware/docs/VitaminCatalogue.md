@@ -1,6 +1,7 @@
 # Vitamin Catalogue
 
 ### Contents
+ * [3DRRadio.scad ](#3drradioscad)
  * [APM25.scad ](#apm25scad)
  * [Breadboard.scad ](#breadboardscad)
  * [DCMotor.scad ](#dcmotorscad)
@@ -8,6 +9,7 @@
  * [FTDIBreakout.scad ](#ftdibreakoutscad)
  * [GPS.scad ](#gpsscad)
  * [JumperWire.scad ](#jumperwirescad)
+ * [LinearBearing.scad ](#linearbearingscad)
  * [MicroServo.scad ](#microservoscad)
  * [NeopixelRing.scad ](#neopixelringscad)
  * [StepperMotor.scad ](#steppermotorscad)
@@ -20,6 +22,12 @@
  * [washer.scad ](#washerscad)
  * [wingnut.scad ](#wingnutscad)
 
+
+## 3DRRadio.scad
+
+Title | Call | Image
+--- | --- | ---
+3DR Radio | `3DRRadio()` | ![3DR Radio](../vitamins/images/3DRRadio_view.png)
 
 ## APM25.scad
 
@@ -65,6 +73,19 @@ GPS Module | `GPS()` | ![GPS Module](../vitamins/images/GPSModule_view.png)
 Title | Call | Image
 --- | --- | ---
 JumperWire Male to Male 2pin 100mm | `JumperWire(type=JumperWire_MM2, length=100)` | ![JumperWire Male to Male 2pin 100mm](../vitamins/images/JumperWireMaletoMale2pin100mm_view.png)
+
+## LinearBearing.scad
+
+Title | Call | Image
+--- | --- | ---
+LM25UU Linear Bearing | `LinearBearing(LinearBearing_LM25UU)` | ![LM25UU Linear Bearing](../vitamins/images/LM25UULinearBearing_view.png)
+LM20UU Linear Bearing | `LinearBearing(LinearBearing_LM20UU)` | ![LM20UU Linear Bearing](../vitamins/images/LM20UULinearBearing_view.png)
+LM16UU Linear Bearing | `LinearBearing(LinearBearing_LM16UU)` | ![LM16UU Linear Bearing](../vitamins/images/LM16UULinearBearing_view.png)
+LM12UU Linear Bearing | `LinearBearing(LinearBearing_LM12UU)` | ![LM12UU Linear Bearing](../vitamins/images/LM12UULinearBearing_view.png)
+LM10UU Linear Bearing | `LinearBearing(LinearBearing_LM10UU)` | ![LM10UU Linear Bearing](../vitamins/images/LM10UULinearBearing_view.png)
+LM8UU Linear Bearing | `LinearBearing(LinearBearing_LM8UU)` | ![LM8UU Linear Bearing](../vitamins/images/LM8UULinearBearing_view.png)
+LM6UU Linear Bearing | `LinearBearing(LinearBearing_LM6UU)` | ![LM6UU Linear Bearing](../vitamins/images/LM6UULinearBearing_view.png)
+LM4UU Linear Bearing | `LinearBearing(LinearBearing_LM4UU)` | ![LM4UU Linear Bearing](../vitamins/images/LM4UULinearBearing_view.png)
 
 ## MicroServo.scad
 
@@ -190,3 +211,4 @@ M3 Rubber Washer 10x1.5 | `washer(type=M3_rubber_washer)` | ![M3 Rubber Washer 1
 Title | Call | Image
 --- | --- | ---
 Wingnut M4 | `wingnut(M4_wingnut)` | ![Wingnut M4](../vitamins/images/WingnutM4_view.png)
+

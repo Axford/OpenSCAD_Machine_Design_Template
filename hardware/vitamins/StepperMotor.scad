@@ -81,8 +81,6 @@ function StepperMotor_Con_FrontFixing(t, x=0, y=0) = [
 
 module StepperMotor(type = StepperMotor_NEMA17) {
 
-    //vitamin(str("NEMA", round(type[0] / 2.54), length * 10, ": NEMA", round(type[0] / 2.54), " x ", length, "mm stepper type"));
-
     ts = StepperMotor_TypeSuffix(type);
 
     vitamin("vitamins/StepperMotor.scad", str(ts," Stepper Motor"), str("StepperMotor(StepperMotor_",ts,")")) {
